@@ -1,19 +1,26 @@
 package com.example.wbdvsp20xinyuwangserverspringboot.modules;
 
 public class Widget {
+    enum WidgetType {
+        /**
+         *
+         */
+        HEADER, PARAGRAPH
+    }
+
     private String name;
     private String id;
     private String tid;
     private String type;
     private Integer order;
-    private String text;
-    private String url;
-    private String size;
-    private Integer width;
-    private Integer height;
-    private String cssClass;
-    private String style;
-    private String value;
+    private String text = null;
+    private String url = null;
+    private String size = null;
+    private Integer width = null;
+    private Integer height = null;
+    private String cssClass = null;
+    private String style = null;
+    private String value = "";
 
     public String getName() {
         return name;
@@ -128,6 +135,14 @@ public class Widget {
         this.name = name;
         this.id = id;
         this.tid = tid;
+    }
+
+
+    public Widget(String name, String id, String tid, Integer order) {
+        this.name = name;
+        this.id = id;
+        this.tid = tid;
+        this.order = order;
     }
 
     public Widget() {
