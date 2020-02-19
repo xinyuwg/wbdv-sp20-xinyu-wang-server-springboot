@@ -1,8 +1,10 @@
 package com.example.wbdvsp20xinyuwangserverspringboot.modules;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 /**
@@ -11,13 +13,6 @@ import java.util.stream.Collectors;
 
 public class WidgetService {
     List<Widget> widgetList = new ArrayList<>();
-
-    {
-        widgetList.add(new Widget("dsds", "123","321"));
-        widgetList.add(new Widget("eqwe", "234","123"));
-        widgetList.add(new Widget("vcvc", "456","321"));
-
-    }
 
     static class FindMoreThanOneWidgetWithSameIdException extends Exception {
     }
@@ -57,6 +52,7 @@ public class WidgetService {
         try {
             this.widgetList = this.widgetList.stream().map((Widget widget) -> {
                 if (widget.getId().equals(wid)) {
+//                    System.out.println(wid);
                     return newWidget;
                 } else {
                     return widget;
@@ -70,8 +66,12 @@ public class WidgetService {
 
     public int deleteWidget(String wid) {
         try {
+            System.out.println(wid);
+            AtomicInteger index = new AtomicInteger(0);
             this.widgetList = this.widgetList.stream()
                     .filter(widget -> !widget.getId().equals(wid))
+                    .sorted(Comparator.comparingInt(Widget::getOrder))
+                    .peek(widget -> widget.setOrder(index.getAndIncrement()))
                     .collect(Collectors.toList());
             return 1;
         } catch (Exception e) {

@@ -11,8 +11,8 @@ public class Widget {
     private String name;
     private String id;
     private String tid;
-    private String type;
-    private Integer order;
+    private String type="Heading";
+    private Integer order=-1;
     private String text = null;
     private String url = null;
     private String size = null;
@@ -20,7 +20,7 @@ public class Widget {
     private Integer height = null;
     private String cssClass = null;
     private String style = null;
-    private String value = "";
+    private String value = "Empty Widget";
 
     public String getName() {
         return name;
@@ -147,4 +147,6 @@ public class Widget {
 
     public Widget() {
     }
+
+
 }
