@@ -1,4 +1,4 @@
-package com.example.wbdvsp20xinyuwangserverspringboot.modules;
+package com.example.wbdvsp20xinyuwangserverspringboot;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -13,7 +13,9 @@ import java.util.stream.Collectors;
 
 public class WidgetService {
     List<Widget> widgetList = new ArrayList<>();
-
+    {
+        widgetList.add(new Widget("ds", "sds"));
+    }
     static class FindMoreThanOneWidgetWithSameIdException extends Exception {
     }
 

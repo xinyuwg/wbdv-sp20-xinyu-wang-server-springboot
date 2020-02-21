@@ -1,4 +1,4 @@
-package com.example.wbdvsp20xinyuwangserverspringboot.modules;
+package com.example.wbdvsp20xinyuwangserverspringboot;
 
 import org.springframework.web.bind.annotation.*;
 
