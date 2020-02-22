@@ -13,9 +13,8 @@ import java.util.stream.Collectors;
 
 public class WidgetService {
     List<Widget> widgetList = new ArrayList<>();
-    {
-        widgetList.add(new Widget("ds", "sds"));
-    }
+
+
     static class FindMoreThanOneWidgetWithSameIdException extends Exception {
     }
 
@@ -54,7 +53,6 @@ public class WidgetService {
         try {
             this.widgetList = this.widgetList.stream().map((Widget widget) -> {
                 if (widget.getId().equals(wid)) {
-//                    System.out.println(wid);
                     return newWidget;
                 } else {
                     return widget;
