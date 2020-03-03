@@ -23,8 +23,8 @@ public class TopicController {
         this.topicService = topicService;
     }
 
-    @PostMapping("/api/topics/{lid}/topics")
-    public Topic createTopic(@PathVariable("lid") String lid, Topic topic) {
+    @PostMapping("/api/lessons/{lid}/topics")
+    public Topic createTopic(@PathVariable("lid") String lid, @RequestBody Topic topic) {
         return topicService.createTopic(lid, topic);
     }
 
